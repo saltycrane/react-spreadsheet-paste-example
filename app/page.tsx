@@ -1,3 +1,9 @@
+import SpreadsheetPasteExample from "./SpreadsheetPasteExample";
+
 export default function IndexPage() {
-  return <div>IndexPage</div>;
+  return (
+    <div>
+      <SpreadsheetPasteExample />
+    </div>
+  );
 }
