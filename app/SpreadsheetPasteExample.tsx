@@ -19,21 +19,21 @@ export default function SpreadsheetPasteExample() {
   };
 
   return (
-    <div className="w-full max-w-4xl p-4">
+    <div className="w-full p-4">
       <div
         aria-label="Excel paste area"
-        className="border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 min-h-32 focus:outline-none focus:border-blue-500"
+        className="max-w-4xl border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 min-h-32 focus:outline-none focus:border-blue-500"
         onPaste={handlePaste}
         role="textbox"
         tabIndex={0}
       >
         <p className="text-gray-500 mb-2">
-          Paste Spreadsheet data here (Ctrl+V or Cmd+V)
+          Paste spreadsheet data here (Ctrl+V or Cmd+V)
         </p>
       </div>
       {pastedData.length > 0 && (
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+          <table className="border-collapse">
             <tbody>
               {pastedData.map((row, rowIndex) => (
                 <tr key={rowIndex}>
