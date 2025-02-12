@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 
 export default function SpreadsheetPasteExample() {
-  const [pastedData, setPastedData] = useState([]);
+  const [pastedData, setPastedData] = useState<string[][]>([]);
 
-  const handlePaste = (event) => {
+  const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => {
     event.preventDefault();
 
     // Get clipboard data
-    const clipboardData = event.clipboardData || window.clipboardData;
+    const clipboardData = event.clipboardData;
     const pastedText = clipboardData.getData("text");
 
     // Split into rows and columns
@@ -21,17 +21,16 @@ export default function SpreadsheetPasteExample() {
   return (
     <div className="w-full max-w-4xl p-4">
       <div
+        aria-label="Excel paste area"
         className="border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 min-h-32 focus:outline-none focus:border-blue-500"
         onPaste={handlePaste}
-        tabIndex={0}
         role="textbox"
-        aria-label="Excel paste area"
+        tabIndex={0}
       >
         <p className="text-gray-500 mb-2">
-          Paste Excel data here (Ctrl+V or Cmd+V)
+          Paste Spreadsheet data here (Ctrl+V or Cmd+V)
         </p>
       </div>
-
       {pastedData.length > 0 && (
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
